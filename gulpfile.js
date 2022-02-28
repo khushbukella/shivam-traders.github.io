@@ -203,7 +203,7 @@ gulp.task('deploy', function () {
   return gulp.src("./source/**/*")
     .pipe(deploy({ 
       remoteUrl: "https://github.com/khushbukella/shivam-traders.github.io.git",
-      branch: "master"
+      branch: "main"
     }))
 });
 
