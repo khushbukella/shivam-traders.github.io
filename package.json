@@ -5,6 +5,7 @@
     "packages": {},
     "dependencies": {
         "browser-sync": "^2.27.7",
+        "gift": "^0.10.2",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^8.0.0",
         "gulp-file-include": "^2.3.0",
