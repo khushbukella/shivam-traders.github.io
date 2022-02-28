@@ -199,7 +199,6 @@ gulp.task('netlify', gulp.series(
 ));
 
 
-var gulp        = require('gulp');
 var deploy      = require('gulp-gh-pages');
 
 /**
