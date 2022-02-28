@@ -2,13 +2,13 @@
 
 const sass = require('gulp-sass')(require('sass'));
 const gulp = require('gulp');
-var deploy = require('gulp-gh-pages');
 const sourcemaps = require('gulp-sourcemaps');
 const fileinclude = require('gulp-file-include');
 const autoprefixer = require('gulp-autoprefixer');
 const bs = require('browser-sync').create();
 const rimraf = require('rimraf');
 const comments = require('gulp-header-comment');
+var deploy = require('gulp-gh-pages');
 
 var path = {
   src: {
@@ -199,16 +199,10 @@ gulp.task('netlify', gulp.series(
   'plugins:netlify:build'
 ));
 
-
-var deploy      = require('gulp-gh-pages');
-
-/**
- * Push build to gh-pages
- */
- gulp.task('deploy', function () {
-  return gulp.src("./prod/**/*")
+gulp.task('deploy', function () {
+  return gulp.src("./source/**/*")
     .pipe(deploy({ 
       remoteUrl: "https://github.com/khushbukella/shivam-traders.github.io.git",
-      branch: "main"
+      branch: "master"
     }))
 });
