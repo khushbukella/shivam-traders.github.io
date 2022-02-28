@@ -3,4 +3,3 @@ dist
 *.log
 theme
 .publish
-package-lock.json
