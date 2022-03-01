@@ -200,7 +200,7 @@ gulp.task('netlify', gulp.series(
 ));
 
 gulp.task('deploy', function () {
-  return gulp.src("./source/**/*")
+  return gulp.src("./source/*")
     .pipe(deploy({ 
       remoteUrl: "https://github.com/khushbukella/shivam-traders.github.io.git",
       branch: "main"
