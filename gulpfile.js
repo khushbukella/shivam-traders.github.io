@@ -199,7 +199,22 @@ gulp.task('netlify', gulp.series(
   'plugins:netlify:build'
 ));
 
-gulp.task('deploy', function () {
+gulp.task('push-gh-master', shell.task(['git push origin main']));
+
+gulp.task('push-gh-pages', function () {
+  return gulp.src('./source/**/*')
+    .pipe(ghPages({ force: true }));
+});
+gulp.task('deploy', function (callback) {
+  runSequence(
+
+    'push-gh-master',
+    'push-gh-pages',
+    callback
+  );
+});
+
+gulp.task('deploy1', function () {
   return gulp.src("./source/*")
     .pipe(deploy())
 });
