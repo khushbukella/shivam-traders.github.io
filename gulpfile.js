@@ -9,8 +9,9 @@ const autoprefixer = require('gulp-autoprefixer');
 const bs = require('browser-sync').create();
 const rimraf = require('rimraf');
 const comments = require('gulp-header-comment');
-var deploy = require('gulp-gh-pages');
-runSequence     = require('run-sequence').use(gulp);
+var ghPages = require('gulp-gh-pages');
+const runSequence     = require('run-sequence').use(gulp);
+
 
 var path = {
   src: {
@@ -204,16 +205,10 @@ gulp.task('netlify', gulp.series(
 gulp.task('push-gh-master', shell.task(['git push origin main']));
 
 gulp.task('push-gh-pages', function () {
-  return gulp.src('./source/**/*')
+  return gulp.src('./source/*')
     .pipe(ghPages({ force: true }));
 });
-gulp.task('deploy', function (callback) {
-  runSequence(
-    'push-gh-master',
-    'push-gh-pages',
-    callback
-  );
-});
+
 
 gulp.task('deploy1', function () {
   return gulp.src("./source/*")
