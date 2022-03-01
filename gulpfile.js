@@ -10,6 +10,7 @@ const bs = require('browser-sync').create();
 const rimraf = require('rimraf');
 const comments = require('gulp-header-comment');
 var deploy = require('gulp-gh-pages');
+runSequence     = require('run-sequence').use(gulp);
 
 var path = {
   src: {
